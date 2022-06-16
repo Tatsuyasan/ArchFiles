@@ -470,5 +470,6 @@ beautiful.useless_gap = 5
 -- Autostart
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("/home/vincent/.config/polybar/launch.sh")
+awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wallpapers")
 
 -- }}}
