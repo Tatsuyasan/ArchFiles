@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo pacman -Syu > pkglist.env
+cat pkglist.env | xargs paru -S --needed --noconfirm
