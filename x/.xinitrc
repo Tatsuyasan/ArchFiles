@@ -1,2 +1,1 @@
-picom --experimental-backends &
-exec awesome
+exec picom --experimental-backends & awesome
