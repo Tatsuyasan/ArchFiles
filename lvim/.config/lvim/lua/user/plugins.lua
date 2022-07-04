@@ -1,9 +1,14 @@
+-- Additional Plugins
+-- lvim.plugins = {
+--     {"folke/tokyonight.nvim"},
+--     {
+--       "folke/trouble.nvim",
+--       cmd = "TroubleToggle",
+--     },
+-- }
+
+
 lvim.plugins = {
--- {"folke/tokyonight.nvim"},
--- {
---   "folke/trouble.nvim",
---   cmd = "TroubleToggle",
--- },
   {
     "phaazon/hop.nvim",
     event = "BufRead",
@@ -16,12 +21,19 @@ lvim.plugins = {
     config = function()
       require("user.neoscroll").config()
     end,
-  }
+  },
   -- {
   --   "kdheepak/lazygit.nvim",
   --   event = "BufRead",
   --   config = function()
   --     require("user.lazygit").config()
   --   end,
-  -- }
+  -- },
+  {
+    "danilamihailov/beacon.nvim",
+    event = "BufRead",
+    config = function()
+      require("user.beacon").config()
+    end,
+  }
 }
