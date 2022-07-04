@@ -1,21 +1,18 @@
--- If LuaRocks is installed, make sure that packages installed through it are
+jjk-- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
 -- Standard awesome library
-local gears = require("gears")
-local awful = require("awful")
-require("awful.autofocus")
--- Widget and layout library
--- Theme handling library
-local beautiful = require("beautiful")
--- Notification library
-local naughty = require("naughty")
-local menubar = require("menubar")
+local gears         = require("gears")
+local awful         = require("awful")
+                      require("awful.autofocus")
+local beautiful     = require("beautiful")
+local naughty       = require("naughty") -- Notification library
+local lain          = require("lain")
+local menubar       = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
--- Enable hotkeys help widget for VIM and other apps
--- when client with a matching name is opened:
-require("awful.hotkeys_popup.keys")
+                      require("awful.hotkeys_popup.keys")
+
 
 -- Load Debian menu entries
 local has_fdo, freedesktop = pcall(require, "freedesktop")
@@ -125,8 +122,19 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    -- Show help
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
+
+    -- User programs
+    awful.key({ modkey }, "q", function () awful.spawn(browser) end,
+              {description = "run browser", group = "launcher"}),
+
+    -- Show / hide polybar
+    awful.key({ modkey,           }, "b", function () os.execute("polybar-msg cmd toggle") end,
+              {description = "toggle polybar", group = "awesome"}),
+              
+    -- Tag browsing
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
@@ -134,20 +142,63 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    awful.key({ modkey,           }, "j",
+    -- Default client focus
+    awful.key({ altkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
         end,
         {description = "focus next by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "k",
+    awful.key({ altkey,           }, "k",
         function ()
             awful.client.focus.byidx(-1)
         end,
         {description = "focus previous by index", group = "client"}
     ),
+    
+    -- Default client focus
+    awful.key({ altkey,           }, "j",
+        function ()
+            awful.client.focus.byidx( 1)
+        end,
+        {description = "focus next by index", group = "client"}
+    ),
+    awful.key({ altkey,           }, "k",
+        function ()
+            awful.client.focus.byidx(-1)
+        end,
+        {description = "focus previous by index", group = "client"}
+    ),
+
+    -- By-direction client focus
+    awful.key({ modkey }, "j",
+        function()
+            awful.client.focus.global_bydirection("down")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus down", group = "client"}),
+    awful.key({ modkey }, "k",
+        function()
+            awful.client.focus.global_bydirection("up")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus up", group = "client"}),
+    awful.key({ modkey }, "h",
+        function()
+            awful.client.focus.global_bydirection("left")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus left", group = "client"}),
+    awful.key({ modkey }, "l",
+        function()
+            awful.client.focus.global_bydirection("right")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus right", group = "client"}),
+
+    -- Menu
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+        {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -162,12 +213,16 @@ globalkeys = gears.table.join(
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
         function ()
-            awful.client.focus.history.previous()
+            if cycle_prev then
+                awful.client.focus.history.previous()
+            else
+                awful.client.focus.byidx(-1)
+            end
             if client.focus then
                 client.focus:raise()
             end
         end,
-        {description = "go back", group = "client"}),
+        {description = "cycle with previous/go back", group = "client"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
@@ -176,13 +231,10 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-    -- Show / hide polybar
-    awful.key({ modkey,           }, "b", function () os.execute("polybar-msg cmd toggle") end,
-              {description = "toggle polybar", group = "awesome"}),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey, altkey    }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
@@ -197,17 +249,13 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({ modkey, "Control" }, "n",
-              function ()
-                  local c = awful.client.restore()
-                  -- Focus restored client
-                  if c then
-                    c:emit_signal(
-                        "request::activate", "key.unminimize", {raise = true}
-                    )
-                  end
-              end,
-              {description = "restore minimized", group = "client"}),
+    awful.key({ modkey, "Control" }, "n", function ()
+        local c = awful.client.restore()
+        -- Focus restored client
+        if c then
+            c:emit_signal("request::activate", "key.unminimize", {raise = true})
+        end
+    end, {description = "restore minimized", group = "client"}),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () os.execute(string.format("rofi -show %s", "drun")) end,
@@ -215,7 +263,25 @@ globalkeys = gears.table.join(
 
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+
+    -- On-the-fly useless gaps change
+    awful.key({ altkey, "Control" }, "u", function () lain.util.useless_gaps_resize(1) end,
+              {description = "increment useless gaps", group = "tag"}),
+    awful.key({ altkey, "Control" }, "d", function () lain.util.useless_gaps_resize(-1) end,
+              {description = "decrement useless gaps", group = "tag"}),
+
+    -- Dynamic tagging
+    awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
+              {description = "add new tag", group = "tag"}),
+    awful.key({ modkey, "Shift" }, "r", function () lain.util.rename_tag() end,
+              {description = "rename tag", group = "tag"}),
+    awful.key({ modkey, "Shift" }, "Left", function () lain.util.move_tag(-1) end,
+              {description = "move tag to the left", group = "tag"}),
+    awful.key({ modkey, "Shift" }, "Right", function () lain.util.move_tag(1) end,
+              {description = "move tag to the right", group = "tag"}),
+    awful.key({ modkey, "Shift" }, "d", function () lain.util.delete_tag() end,
+              {description = "delete tag", group = "tag"}),
 )
 
 clientkeys = gears.table.join(
