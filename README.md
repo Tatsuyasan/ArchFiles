@@ -23,3 +23,10 @@ stow zsh # Just my zsh config
 ## Programs
 
 An updated list of all the programs I use can be found in the `programs` directory
+## Process
+
+### Shell by default
+Change shell for zsh:
+```bash
+chsh -s $(which zsh)
+```
