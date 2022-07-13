@@ -20,7 +20,7 @@ function ranger-cd {
     local ranger_cmd=(
         command
         ranger
-        --cmd="map O chain shell echo %d > "$tempfile"; quitall"
+        --cmd="map ^o chain shell echo %d > "$tempfile"; quitall"
     )
 
     ${ranger_cmd[@]} "$@"
