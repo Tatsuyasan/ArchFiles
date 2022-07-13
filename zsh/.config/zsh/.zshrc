@@ -33,6 +33,7 @@ unsetopt BEEP
 autoload -Uz compinit && compinit #need the next two lines for case insensitive tab completion
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+zmodload zsh/complist
 # compinit
 _comp_options+=(globdots)		# Include hidden files.
 
