@@ -6,7 +6,7 @@
 # Monitor Config
 # xrandr --auto --output DVI-D-0 --mode 2560x1440 --left-of HDMI-0
  
-# xrandr --output DP-1 --mode 2560x1440 --rate 59.95
+# xrandr --output eDP-1 --mode 2560x1440 --rate 170 
 # xrandr --auto --output HDMI-1 --mode 2560x1440 --left-of DP-1
 
 # Network Manager Applet
