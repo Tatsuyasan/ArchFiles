@@ -48,4 +48,6 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/vim-be-good'
     use 'feline-nvim/feline.nvim'
     use 'nvim-tree/nvim-web-devicons'
+--    use 'karb94/neoscroll.nvim'
+    use 'windwp/nvim-autopairs'
 end)
