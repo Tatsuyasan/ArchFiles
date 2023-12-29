@@ -1,7 +1,9 @@
+-- local client = client
 local awful = require 'awful'
 local lain = require 'lain'
 
 local mod = require 'bindings.mod'
+local debug = require 'utils.functions'.mydebug
 
 client.connect_signal('request::default_keybindings', function()
     awful.keyboard.append_client_keybindings {
@@ -11,6 +13,7 @@ client.connect_signal('request::default_keybindings', function()
             description = 'toggle fullscreen',
             group       = 'client',
             on_press    = function(c)
+                debug(c.name)
                 c.fullscreen = not c.fullscreen
                 c:raise()
             end,
@@ -101,6 +104,97 @@ client.connect_signal('request::default_keybindings', function()
             group       = 'client',
             on_press    = function() lain.util.useless_gaps_resize(-1) end,
         },
-
+        -- Client focus
+        awful.key {
+            modifiers   = { mod.super },
+            key         = 'h',
+            description = 'Focus next window left',
+            group       = 'client',
+            on_press    = function(c)
+                awful.client.focus.global_bydirection("left")
+                c:lower()
+            end,
+        },
+        awful.key {
+            modifiers   = { mod.super },
+            key         = 'j',
+            description = 'Focus next window down',
+            group       = 'client',
+            on_press    = function(c)
+                awful.client.focus.global_bydirection("down")
+                c:lower()
+            end,
+        },
+        awful.key {
+            modifiers   = { mod.super },
+            key         = 'k',
+            description = 'Focus next window up',
+            group       = 'client',
+            on_press    = function(c)
+                awful.client.focus.global_bydirection("up")
+                c:lower()
+            end,
+        },
+        awful.key {
+            modifiers   = { mod.super },
+            key         = 'l',
+            description = 'Focus next window right',
+            group       = 'client',
+            on_press    = function(c)
+                awful.client.focus.global_bydirection("right")
+                c:lower()
+            end,
+        },
+        -- By-direction client swap
+        awful.key {
+            modifiers   = { mod.super, mod.shift },
+            key         = 'h',
+            description = 'Swap with right client',
+            group       = 'client',
+            on_press    = function(c)
+                awful.client.swap.global_bydirection("left")
+                c:raise()
+            end,
+        },
+        awful.key {
+            modifiers   = { mod.super, mod.shift },
+            key         = 'l',
+            description = 'Swap with left client',
+            group       = 'client',
+            on_press    = function(c)
+                awful.client.swap.global_bydirection("right")
+                c:raise()
+            end,
+        },
+        awful.key {
+            modifiers   = { mod.super, mod.shift },
+            key         = 'j',
+            description = 'Swap with up client',
+            group       = 'client',
+            on_press    = function(c)
+                awful.client.swap.global_bydirection("down")
+                c:raise()
+            end,
+        },
+        awful.key {
+            modifiers   = { mod.super, mod.shift },
+            key         = 'k',
+            description = 'Swap with down client',
+            group       = 'client',
+            on_press    = function(c)
+                awful.client.swap.global_bydirection("up")
+                c:raise()
+            end,
+        },
+        -- Alt-tab like with rofi
+        awful.key {
+            modifiers   = { mod.super, mod.alt },
+            key         = 'Tab',
+            description = 'trigger a window list',
+            group       = 'client',
+            on_press    = function()
+                awful.spawn("rofi -show window -show-icons")
+            end,
+        },
     }
 end)

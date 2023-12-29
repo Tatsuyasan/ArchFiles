@@ -1,0 +1,12 @@
+[2023-01-05 17:39:28.142] [exthost] [info] Extension host with pid 39074 started
+[2023-01-05 17:39:28.142] [exthost] [info] Skipping acquiring lock for /home/vincent/.config/VSCodium/User/workspaceStorage/4cbe0d69ca171a0770debfca21a1bd3c.
+[2023-01-05 17:39:28.176] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2023-01-05 17:39:28.177] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+[2023-01-05 17:39:28.177] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2023-01-05 17:39:28.188] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2023-01-05 17:39:28.194] [exthost] [info] Eager extensions activated
+[2023-01-05 17:39:28.196] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2023-01-05 17:39:28.196] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2023-01-05 17:39:46.728] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+[2023-01-05 17:39:48.516] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2023-01-05 17:39:48.522] [exthost] [info] Extension host with pid 39074 exiting with code 0

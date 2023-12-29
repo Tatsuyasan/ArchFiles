@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # Terminate already running bar instances
-killall polybar
-
-# Wait until the processes have been shut down
+killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+polybar main &
 
-# Launch polybar
-polybar main -c $(dirname $0)/config.ini &
-
-if [[ $(xrandr -q | grep 'HDMI1 connected') ]]; then
-	polybar external -c $(dirname $0)/config.ini &
+if type "xrandr"; then
+	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+		MONITOR=$m polybar --reload main &
+	done
+else
+	polybar --reload main &
 fi

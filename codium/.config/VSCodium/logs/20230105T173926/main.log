@@ -1,0 +1,6 @@
+[2023-01-05 17:39:26.621] [main] [info] update#setState idle
+[2023-01-05 17:39:27.705] [main] [info] Starting extension host with pid 39048 (fork() took 5 ms).
+[2023-01-05 17:39:27.836] [main] [info] Starting extension host with pid 39074 (fork() took 4 ms).
+[2023-01-05 17:39:44.408] [main] [info] Extension host with pid 39048 exited with code: 0, signal: null.
+[2023-01-05 17:39:48.525] [main] [info] Waiting for extension host with pid 39074 to exit.
+[2023-01-05 17:39:48.531] [main] [info] Extension host with pid 39074 exited with code: 0, signal: null.

@@ -70,3 +70,5 @@ xset r rate 210 40
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="google-chrome"
+
+export DISPLAY=:0

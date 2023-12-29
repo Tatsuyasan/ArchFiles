@@ -5,7 +5,6 @@ local menubar = require 'menubar'
 
 local apps = require 'config.apps'
 local mod = require 'bindings.mod'
-local widgets = require 'widgets'
 
 menubar.utils.terminal = apps.terminal
 
@@ -23,7 +22,10 @@ awful.keyboard.append_global_keybindings {
         key         = 'w',
         description = 'show main menu',
         group       = 'awesome',
-        on_press    = function() widgets.menu.mainmenu:show() end,
+        on_press    = function()
+            local focusedScreen = awful.screen.focused()
+            focusedScreen.menu.mainmenu:show()
+        end,
     },
     awful.key {
         modifiers   = { mod.super, mod.ctrl },
@@ -152,55 +154,34 @@ awful.keyboard.append_global_keybindings {
 
 -- layout related keybindings
 awful.keyboard.append_global_keybindings {
-    awful.key {
-        modifiers   = { mod.super, mod.shift },
-        key         = 'j',
-        description = 'swap with next client by index',
-        group       = 'client',
-        on_press    = function() awful.client.swap.byidx(1) end,
-    },
-    awful.key {
-        modifiers   = { mod.super, mod.shift },
-        key         = 'k',
-        description = 'swap with previous client by index',
-        group       = 'client',
-        on_press    = function() awful.client.swap.byidx(-1) end,
-    },
-    awful.key {
-        modifiers   = { mod.super },
-        key         = 'u',
-        description = 'jump to urgent client',
-        group       = 'client',
-        on_press    = awful.client.urgent.jumpto,
-    },
-    awful.key {
-        modifiers   = { mod.super },
-        key         = 'l',
-        description = 'increase master width factor',
-        group       = 'layout',
-        on_press    = function() awful.tag.incmwfact(0.05) end,
-    },
-    awful.key {
-        modifiers   = { mod.super },
-        key         = 'h',
-        description = 'decrease master width factor',
-        group       = 'layout',
-        on_press    = function() awful.tag.incmwfact(-0.05) end,
-    },
-    awful.key {
-        modifiers   = { mod.super, mod.shift },
-        key         = 'h',
-        description = 'increase the number of master clients',
-        group       = 'layout',
-        on_press    = function() awful.tag.incnmaster(1, nil, true) end,
-    },
-    awful.key {
-        modifiers   = { mod.super, mod.shift },
-        key         = 'l',
-        description = 'decrease the number of master clients',
-        group       = 'layout',
-        on_press    = function() awful.tag.incnmaster(-1, nil, true) end,
-    },
+    -- awful.key {
+    --     modifiers   = { mod.super, mod.shift },
+    --     key         = 'j',
+    --     description = 'swap with next client by index',
+    --     group       = 'client',
+    --     on_press    = function() awful.client.swap.byidx(1) end,
+    -- },
+    -- awful.key {
+    --     modifiers   = { mod.super, mod.shift },
+    --     key         = 'k',
+    --     description = 'swap with previous client by index',
+    --     group       = 'client',
+    --     on_press    = function() awful.client.swap.byidx(-1) end,
+    -- },
+    -- awful.key {
+    --     modifiers   = { mod.super, mod.shift },
+    --     key         = 'h',
+    --     description = 'increase the number of master clients',
+    --     group       = 'layout',
+    --     on_press    = function() awful.tag.incnmaster(1, nil, true) end,
+    -- },
+    -- awful.key {
+    --     modifiers   = { mod.super, mod.shift },
+    --     key         = 'l',
+    --     description = 'decrease the number of master clients',
+    --     group       = 'layout',
+    --     on_press    = function() awful.tag.incnmaster(-1, nil, true) end,
+    -- },
     awful.key {
         modifiers   = { mod.super, mod.ctrl },
         key         = 'h',
@@ -214,20 +195,6 @@ awful.keyboard.append_global_keybindings {
         description = 'decrease the number of columns',
         group       = 'layout',
         on_press    = function() awful.tag.incnmaster(-1, nil, true) end,
-    },
-    awful.key {
-        modifiers   = { mod.super },
-        key         = 'space',
-        description = 'select next',
-        group       = 'layout',
-        on_press    = function() awful.layout.inc(1) end,
-    },
-    awful.key {
-        modifiers   = { mod.super, mod.shift },
-        key         = 'space',
-        description = 'select previous',
-        group       = 'layout',
-        on_press    = function() awful.layout.inc(-1) end,
     },
 }
 

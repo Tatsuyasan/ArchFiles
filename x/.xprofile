@@ -9,10 +9,6 @@
 # xrandr --output eDP-1 --mode 2560x1440 --rate 170 
 # xrandr --auto --output HDMI-1 --mode 2560x1440 --left-of DP-1
 
-# Network Manager Applet
-nm-applet --indicator &
-
-
 # Environment variables set everywhere
 export EDITOR="nvim"
 export TERMINAL="kitty"
@@ -26,9 +22,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 # Hide mouse when typing
 xbanish &
-
-# Screenshots
-flameshot &
 
 # Bluetooth systray icon
 # blueman-applet &

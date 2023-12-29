@@ -1,25 +1,20 @@
-local awful = require 'awful'
-
--- awesome_mode: api-level=4:screen=on
-
+local awful = require "awful"
+require "awful.autofocus"
 -- load luarocks if installed
 pcall(require, 'luarocks.loader')
 
--- load theme
-local beautiful = require 'beautiful'
-local gears = require 'gears'
-beautiful.init(gears.filesystem.get_themes_dir() .. 'default/theme.lua')
+-- local st = require("util.stalonetray")
+-- st.start()
 
--- load key and mouse bindings
+require 'config'
+require 'themes'
 require 'bindings'
-
--- load rules
 require 'rules'
-
--- load signals
 require 'signals'
 
 awful.spawn.with_shell("picom")
--- awful.spawn.with_shell("/home/vincent/.config/polybar/launch.sh")
+awful.spawn.with_shell("flameshot")
+awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("blueman-applet")
 awful.spawn.with_shell("~/.screenlayout/two-monitor-layout.sh")
 awful.spawn.with_shell("feh --bg-fill -r -z ~/wallpapers")

@@ -1,30 +1,36 @@
-local awful = require'awful'
-local beautiful = require'beautiful'
-local wibox = require'wibox'
+local awful = require 'awful'
+local beautiful = require 'beautiful'
+local wibox = require 'wibox'
+local naughty = require 'naughty'
 
-local vars = require'config.vars'
-local widgets = require'widgets'
+local vars = require 'config.vars'
 
 screen.connect_signal('request::wallpaper', function(s)
-   awful.wallpaper{
-      screen = s,
-      widget = {
-         {
-            image     = beautiful.wallpaper,
-            upscale   = true,
-            downscale = true,
-            widget    = wibox.widget.imagebox,
-         },
-         valign = 'center',
-         halign = 'center',
-         tiled = false,
-         widget = wibox.container.tile,
-      }
+    awful.wallpaper {
+        screen = s,
+        widget = {
+            {
+                image     = beautiful.wallpaper,
+                upscale   = true,
+                downscale = true,
+                widget    = wibox.widget.imagebox,
+            },
+            valign = 'center',
+            halign = 'center',
+            tiled = false,
+            widget = wibox.container.tile,
+        }
 
-   }
+    }
 end)
 
 screen.connect_signal('request::desktop_decoration', function(s)
-   awful.tag(vars.tags, s, awful.layout.layouts[1])
-   widgets.wibar(s)
+    -- Each screen has its own layouts.
+    if s.index == 1 then
+        -- create tags for screen 1
+        awful.tag(vars.tags, s, vars.layouts.horizontal)
+    elseif s.index == 2 then
+        -- create tags for screen 2
+        awful.tag(vars.tags, s, vars.layouts.vertical)
+    end
 end)

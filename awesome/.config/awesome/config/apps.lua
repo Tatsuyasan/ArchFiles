@@ -1,9 +1,9 @@
-local _M = {
+local M = {
     terminal = 'kitty',
     editor   = os.getenv('EDITOR') or 'nano',
 }
 
-_M.editor_cmd = _M.terminal .. ' -e ' .. _M.editor
-_M.manual_cmd = _M.terminal .. ' -e man awesome'
+M.editor_cmd = M.terminal .. ' -e ' .. M.editor
+M.manual_cmd = M.terminal .. ' -e man awesome'
 
-return _M
+return M
