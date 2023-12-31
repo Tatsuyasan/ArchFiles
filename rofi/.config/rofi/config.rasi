@@ -10,6 +10,11 @@ configuration {
 
 @theme "/home/vincent/.config/rofi/themes/spotlight-dark.rasi"
 
+* {
+  // Focus color 
+  bg2:    #F07178;
+}
+
 window {
   width: 30%;
   height: 30%;
