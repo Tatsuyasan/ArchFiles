@@ -25,3 +25,12 @@ end
 function pbpaste 
     command xclip -selection clipboard -o $argv
 end
+
+# workspaces
+function dotfiles
+    cd ~/.config
+end
+
+function archfiles
+    cd ~/ArchFiles
+end

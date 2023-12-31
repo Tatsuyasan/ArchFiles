@@ -52,3 +52,4 @@ source ~/.config/fish/custom/git-undo.fish
 source ~/.config/fish/custom/pubkey.fish
 source ~/.config/fish/custom/mkd.fish
 source ~/.config/fish/custom/weather.fish
+source ~/.config/fish/custom/ranger.fish
