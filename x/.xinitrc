@@ -1,2 +1,3 @@
-xbanish &
-picom
+xbanish & 
+./.screenlayout/home.sh & 
+exec awesome
