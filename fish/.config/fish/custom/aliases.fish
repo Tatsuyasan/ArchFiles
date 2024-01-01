@@ -18,11 +18,16 @@ function cl
     command clear; and neofetch
 end
 
+# git
+function gs
+    command git status
+end
+
 # xclip
-function pbcopy 
+function pbcopy
     command xclip -selection clipboard $argv
 end
-function pbpaste 
+function pbpaste
     command xclip -selection clipboard -o $argv
 end
 
