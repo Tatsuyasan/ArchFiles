@@ -1,15 +1,15 @@
-# Archfiles
+# ArchFiles
 
 ## Informations
 
-Actually, this repo is used to test some packages and theirs configs, 
+Actually, this repo is used to test some packages and theirs configurations, 
 In fact, as it's very easy to add or remove new configurations with STOW, 
 there are a large number of configurations for packages that can't be installed.
-it's a bad idea to stow all repository.
+It's a bad idea to stow all repository.
 
-for awesomeWM you need to take **awesome-git** last master release.
+For AwesomeWM you need to take **awesome-git** last master release.
 
-this list below is the main packages for this dotfiles:
+This list below is the main packages for this dotfiles:
 
 ```bash
 stow awesome kitty fish ranger pictures rofi x fonts picom  
@@ -17,8 +17,8 @@ stow awesome kitty fish ranger pictures rofi x fonts picom
 ### Config todo
 
 - [ ] awesome
-- [ ] LazyVim - nvim
 - [ ] xandr
+- [x] LazyVim - nvim
 - [x] rofi
 - [x] picom
 - [x] kitty
@@ -30,11 +30,23 @@ stow awesome kitty fish ranger pictures rofi x fonts picom
 ### Init
 I use **paru AUR** repository
 
-dependencies:
- - Hack Nerd Font
- - papirus-icon-theme (rofi)
- - xbanish
- picom
+Archlinux:
+- Hack Nerd Font
+- papirus-icon-theme (rofi)
+- xbanish
+- picom
+
+Shell:
+- Fish shell
+- Fisher - Plugin manager
+- Tide - Shell theme. Use version 5: fisher install ilancosman/tide@v5
+- Nerd fonts - Powerline-patched fonts. I use Hack.
+- z for fish - Directory jumping
+- Eza - ls replacement
+- ghq - Local Git repository organizer
+- peco - Interactive filtering
+
+
 
 ### Base
 
