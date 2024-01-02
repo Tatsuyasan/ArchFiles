@@ -14,6 +14,10 @@ alias g git
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim
+set -gx TERMINAL kitty
+set -gx BROWSER google-chrome
+set -gx BROWSER google-chrome
+set -gx DISPLAY $(ip route list default | awk '{print $3}'):0
 
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
@@ -35,6 +39,7 @@ function __check_rvm --on-variable PWD --description 'Do nvm stuff'
     else
     end
 end
+bass source ~/.nvm/nvm.sh
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG

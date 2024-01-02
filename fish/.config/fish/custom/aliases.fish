@@ -22,6 +22,9 @@ end
 function gs
     command git status
 end
+function gc
+    command git commit -m $argv
+end
 
 # xclip
 function pbcopy
@@ -29,6 +32,51 @@ function pbcopy
 end
 function pbpaste
     command xclip -selection clipboard -o $argv
+end
+
+# Docker compose
+function dcu
+    command docker-compose up -d
+end
+function dcd
+    command docker-compose down
+end
+function dce
+    command docker-compose exec
+end
+function dcl
+    command docker-compose logs
+end
+function dclf
+    command docker-compose logs -f
+end
+function dcs
+    command docker-compose stop
+end
+function dcp
+    command docker-compose ps
+end
+
+# Colorize grep output (good for log files)
+function grep
+    command grep --color=auto
+end
+function egrep
+    command egrep --color=auto
+end
+function fgrep
+    command fgrep --color=auto
+end
+
+# confirm before overwriting something
+function cp
+    command cp -i
+end
+function mv
+    command mv -i
+end
+function rm
+    command rm -i
 end
 
 # workspaces

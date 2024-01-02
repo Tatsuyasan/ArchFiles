@@ -2,8 +2,8 @@
 
 ## Informations
 
-Actually, this repo is used to test some packages and theirs configurations, 
-In fact, as it's very easy to add or remove new configurations with STOW, 
+Actually, this repo is used to test some packages and theirs configurations,
+In fact, as it's very easy to add or remove new configurations with STOW,
 there are a large number of configurations for packages that can't be installed.
 It's a bad idea to stow all repository.
 
@@ -12,14 +12,15 @@ For AwesomeWM you need to take **awesome-git** last master release.
 This list below is the main packages for this dotfiles:
 
 ```bash
-stow awesome kitty fish ranger pictures rofi x fonts picom  
+stow awesome kitty fish ranger pictures rofi x fonts picom
 ```
+
 ### Config todo
 
 - [ ] awesome
-- [ ] xandr
-- [x] LazyVim - nvim
+- [x] xrandr - .screenlayout folder
 - [x] rofi
+- [x] LazyVim - nvim
 - [x] picom
 - [x] kitty
 - [x] ranger
@@ -28,15 +29,19 @@ stow awesome kitty fish ranger pictures rofi x fonts picom
 ## Installing
 
 ### Init
+
 I use **paru AUR** repository
 
 Archlinux:
+
 - Hack Nerd Font
 - papirus-icon-theme (rofi)
 - xbanish
-- picom
+- picom-git
+- awesome-git
 
 Shell:
+
 - Fish shell
 - Fisher - Plugin manager
 - Tide - Shell theme. Use version 5: fisher install ilancosman/tide@v5
@@ -45,8 +50,6 @@ Shell:
 - Eza - ls replacement
 - ghq - Local Git repository organizer
 - peco - Interactive filtering
-
-
 
 ### Base
 
@@ -75,17 +78,21 @@ An updated list of all the programs I use can be found in the `programs` directo
 ## Process
 
 ### Shell by default
+
 Change default shell:
+
 ```bash
 chsh -s $(which <YOUR_SHELL>)
 ```
 
 ### Add Fonts
+
 - download font zip file in nerd font website
 - unzip and add it at ~/ArchFiles/fonts/.local/share/fonts
 - stow fonts folder in ~/ArchFiles
 
 ### Network
+
 ```bash
 # Start it.
 systemctl start NetworkManager

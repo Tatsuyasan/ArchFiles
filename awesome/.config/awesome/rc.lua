@@ -1,16 +1,16 @@
-local awful = require "awful"
-require "awful.autofocus"
+local awful = require("awful")
+require("awful.autofocus")
 -- load luarocks if installed
-pcall(require, 'luarocks.loader')
+pcall(require, "luarocks.loader")
 
 -- local st = require("util.stalonetray")
 -- st.start()
 
-require 'config'
-require 'themes'
-require 'bindings'
-require 'rules'
-require 'signals'
+require("themes")
+require("config")
+require("bindings")
+require("rules")
+require("signals")
 
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("flameshot")
