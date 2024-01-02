@@ -1,16 +1,4 @@
-# Random Photo Every Login
-# feh --bg-fill --randomize ~/Pictures/wallpapers/* &
-# feh --bg-fill ~/Pictures/wallpapers/mac/Mojave\ Night.jpg --bg-fill ~/Pictures/wallpapers/macos-cataline-night-6k.jpg/
-
-# Monitor Config
-# xrandr --auto --output DVI-D-0 --mode 2560x1440 --left-of HDMI-0
-# xrandr --output eDP-1 --mode 2560x1440 --rate 170 
-# xrandr --auto --output HDMI-1 --mode 2560x1440 --left-of DP-1
-
 # Environment variables set everywhere
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="google-chrome"
-
-# helps with puls audio
-# pasystray &
