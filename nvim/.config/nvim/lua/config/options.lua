@@ -9,7 +9,7 @@ vim.opt.fileencoding = "utf-8"
 
 vim.opt.number = true
 
--- vim.opt.title = true
+vim.opt.pumblend = 0
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
@@ -34,3 +34,13 @@ vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = ""
 vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.formatoptions = "tcrqn"
+--                    + 't'    -- auto-wrap text using textwidth
+--                    + 'c'    -- auto-wrap comments using textwidth
+--                    + "r"    -- auto insert comment leader on pressing enter
+--                    - "o"    -- don't insert comment leader on pressing o
+--                    + "q"    -- format comments with gq
+--                    - "a"    -- don't autoformat the paragraphs (use some formatter instead)
+--                    + 'n'    -- autoformat numbered list
+--                    - "2"    -- I am a programmer and not a writer
+--                    + 'j'    -- Join comments smartly

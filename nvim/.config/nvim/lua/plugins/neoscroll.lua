@@ -5,8 +5,8 @@ return {
       {
         -- All these keys will be mapped to their corresponding default scrolling animation
         mappings = {
-          -- '<C-u>',
-          -- '<C-d>',
+          -- "<C-u>",
+          -- "<C-d>",
           "<C-b>",
           "<C-f>",
           "<C-y>",

@@ -79,11 +79,16 @@ function rm
     command rm -i
 end
 
-# workspaces
+# Workspaces
 function dotfiles
     cd ~/.config
 end
 
 function archfiles
     cd ~/ArchFiles
+end
+
+# Other
+function man
+    command man --locale=fr $argv
 end

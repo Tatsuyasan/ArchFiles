@@ -27,18 +27,23 @@ keymap("n", "<C-a>", "gg<S-v>G", opts)
 keymap({ "n", "v", "i" }, "<C-c>", "<Esc>:noh<return><Esc>", opts)
 
 -- Move position buffer
-keymap("n", "<M-left>", ":BufferLineMovePrev<cr>", opts)
-keymap("n", "<M-right>", ":BufferLineMoveNext<cr>", opts)
+keymap("n", "<M-h>", ":BufferLineMovePrev<cr>", opts)
+keymap("n", "<M-l>", ":BufferLineMoveNext<cr>", opts)
 
--- New tab
-keymap("n", "<tab>", ":tabnext<Return>", opts)
-keymap("n", "te", ":tabedit")
-keymap("n", "<s-tab>", ":tabprev<Return>", opts)
+-- Tabs motion
+keymap("n", "<M-left>", ":tabprev<Return>", opts)
+keymap("n", "<M-right>", ":tabnext<Return>", opts)
+keymap("n", "td", ":tabc<Return>", opts)
 
 -- Split window
 keymap("n", "ss", ":split<Return>", opts)
 keymap("n", "sv", ":vsplit<Return>", opts)
 
+-- Better move in insert mode
+keymap("i", "<C-Return>", "<Esc>o", opts)
+keymap("i", "<C-S-Return>", "<Esc>O", opts)
+
+-- Better rename
 keymap("n", "gR", function()
   return ":IncRename " .. vim.fn.expand("<cword>")
 end, { desc = "Rename with word under cursor", expr = true })

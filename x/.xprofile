@@ -2,3 +2,4 @@
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="google-chrome"
+export LANG="fr_FR.utf8"
