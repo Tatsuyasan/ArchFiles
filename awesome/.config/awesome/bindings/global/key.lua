@@ -143,6 +143,24 @@ awful.keyboard.append_global_keybindings({
 	}),
 	awful.key({
 		modifiers = { mod.super, mod.ctrl },
+		key = "l",
+		description = "focus the next screen",
+		group = "screen",
+		on_press = function()
+			awful.screen.focus_relative(1)
+		end,
+	}),
+	awful.key({
+		modifiers = { mod.super, mod.ctrl },
+		key = "h",
+		description = "focus the previous screen",
+		group = "screen",
+		on_press = function()
+			awful.screen.focus_relative(-1)
+		end,
+	}),
+	awful.key({
+		modifiers = { mod.super, mod.ctrl },
 		key = "j",
 		description = "focus the next screen",
 		group = "screen",
@@ -196,8 +214,8 @@ awful.keyboard.append_global_keybindings({
 	-- },
 	awful.key({
 		modifiers = { mod.super, mod.ctrl },
-		key = "h",
-		description = "increase the number of columns",
+		key = "Left",
+		description = "decrease the number of columns",
 		group = "layout",
 		on_press = function()
 			awful.tag.incnmaster(1, nil, true)
@@ -205,8 +223,8 @@ awful.keyboard.append_global_keybindings({
 	}),
 	awful.key({
 		modifiers = { mod.super, mod.ctrl },
-		key = "l",
-		description = "decrease the number of columns",
+		key = "Right",
+		description = "increase the number of columns",
 		group = "layout",
 		on_press = function()
 			awful.tag.incnmaster(-1, nil, true)
