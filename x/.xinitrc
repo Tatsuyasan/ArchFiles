@@ -1,1 +1,2 @@
+pasystray &
 exec awesome
