@@ -79,6 +79,11 @@ function rm
     command rm -i $argv
 end
 
+# better mkdir
+function mkdir
+    mkdir -p $argv
+end
+
 # Workspaces
 function dotfiles
     cd ~/.config
