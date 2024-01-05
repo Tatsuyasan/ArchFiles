@@ -3,8 +3,8 @@ require("awful.autofocus")
 -- load luarocks if installed
 pcall(require, "luarocks.loader")
 
-require("themes")
 require("config")
+require("themes")
 require("bindings")
 require("rules")
 require("signals")

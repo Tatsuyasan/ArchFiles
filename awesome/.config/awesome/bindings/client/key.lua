@@ -3,7 +3,6 @@ local awful = require("awful")
 local lain = require("lain")
 
 local mod = require("bindings.mod")
-local debug = require("utils.functions").mydebug
 
 client.connect_signal("request::default_keybindings", function()
 	awful.keyboard.append_client_keybindings({
@@ -67,6 +66,15 @@ client.connect_signal("request::default_keybindings", function()
 			group = "client",
 			on_press = function(c)
 				c.minimized = true
+			end,
+		}),
+		awful.key({
+			modifiers = { mod.super, mod.ctrl },
+			key = "n",
+			description = "unminimize",
+			group = "client",
+			on_press = function(c)
+				c.minimized = false
 			end,
 		}),
 		awful.key({

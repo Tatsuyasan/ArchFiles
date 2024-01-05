@@ -12,6 +12,35 @@ menubar.utils.terminal = apps.terminal
 awful.keyboard.append_global_keybindings({
 	awful.key({
 		modifiers = { mod.super },
+		key = "d",
+		on_press = function()
+			awful.spawn.with_shell("feh --bg-fill -r -z ~/wallpapers")
+		end,
+		description = "change wallpapers",
+		group = "awesome",
+	}),
+	awful.key({
+		modifiers = { mod.super, mod.alt },
+		key = "l",
+		on_press = function()
+			awful.spawn.with_shell("betterlockscreen -l dim --display 1")
+		end,
+		description = "Lock screen",
+		group = "awesome",
+	}),
+	awful.key({
+		modifiers = { mod.super },
+		key = "b",
+		on_press = function()
+			for s in screen do
+				s.wibar.visible = not s.wibar.visible
+			end
+		end,
+		description = "toggle wibox",
+		group = "awesome",
+	}),
+	awful.key({
+		modifiers = { mod.super },
 		key = "s",
 		description = "show help",
 		group = "awesome",
@@ -173,7 +202,7 @@ awful.keyboard.append_global_keybindings({
 		key = "n",
 		description = "restore minimized",
 		group = "client",
-		on_press = function()
+		on_press = function(s)
 			local c = awful.client.restore()
 			if c then
 				c:active({ raise = true, context = "key.unminimize" })

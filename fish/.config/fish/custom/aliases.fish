@@ -9,7 +9,7 @@ function ll
     command eza -Flagh --git --group-directories-first --icons --sort modified $argv
 end
 function la
-    command eza -Fla --git --group-directories-first --icons
+    command eza -Fla --git --group-directories-first --icons $argv
 end
 function tree
     command eza --tree --icons $argv
@@ -20,7 +20,7 @@ end
 
 # git
 function gs
-    command git status
+    command git status $argv
 end
 function gc
     command git commit -m $argv
@@ -70,13 +70,13 @@ end
 
 # confirm before overwriting something
 function cp
-    command cp -i
+    command cp -i $argv
 end
 function mv
-    command mv -i
+    command mv -i $argv
 end
 function rm
-    command rm -i
+    command rm -i $argv
 end
 
 # Workspaces
@@ -91,4 +91,12 @@ end
 # Other
 function man
     command man --locale=fr $argv
+end
+
+function treesize
+    command ncdu $argv
+end
+
+function gpu
+    command nvtop $argv
 end
