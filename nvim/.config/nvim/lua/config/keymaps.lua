@@ -26,9 +26,11 @@ keymap("n", "<C-a>", "gg<S-v>G", opts)
 -- Better escape - combine escape and no highliting
 keymap({ "n", "v", "i" }, "<C-c>", "<Esc>:noh<return><Esc>", opts)
 
--- Move position buffer
-keymap("n", "<M-h>", ":BufferLineMovePrev<cr>", opts)
-keymap("n", "<M-l>", ":BufferLineMoveNext<cr>", opts)
+-- Better move with TMUX
+keymap({ "n", "v", "i" }, "<C-h>", "<cmd>TmuxNavigateLeft<cr>", opts)
+keymap({ "n", "v", "i" }, "<C-l>", "<cmd>TmuxNavigateRight<cr>", opts)
+keymap({ "n", "v", "i" }, "<C-j>", "<cmd>TmuxNavigateDown<cr>", opts)
+keymap({ "n", "v", "i" }, "<C-k>", "<cmd>TmuxNavigateUp<cr>", opts)
 
 -- Tabs motion
 keymap("n", "<M-left>", ":tabprev<Return>", opts)
