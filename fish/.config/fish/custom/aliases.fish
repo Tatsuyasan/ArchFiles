@@ -81,7 +81,7 @@ end
 
 # better mkdir
 function mkdir
-    mkdir -p $argv
+    command mkdir -p $argv
 end
 
 # Workspaces
@@ -104,4 +104,8 @@ end
 
 function gpu
     command nvtop $argv
+end
+
+function main
+    command tmux attach-session -t main
 end

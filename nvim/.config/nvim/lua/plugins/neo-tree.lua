@@ -18,14 +18,15 @@ return {
         },
       },
     },
-    window = {
-      filesystem = {
-        filtered_items = {
-          always_show = {
-            ".gitignore",
-            ".env",
-            ".env.local",
-          },
+    filesystem = {
+      filtered_items = {
+        -- hide_dotfiles = false,
+        -- hide_gitignored = false,
+        always_show = {
+          ".gitignore",
+          ".env",
+          ".env.local",
+          ".config",
         },
       },
     },

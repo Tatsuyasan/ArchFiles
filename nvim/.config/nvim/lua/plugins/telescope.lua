@@ -1,3 +1,5 @@
+local finders = require("telescope.finders")
+local sorters = require("telescope.sorters")
 return {
   {
     "telescope.nvim",
