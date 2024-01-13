@@ -5,7 +5,7 @@ configuration {
   font: "Hack Nerd Font";
   modi: "window,run,drun";
   show-icons: true;
-  icon-theme: "Papirus";
+  icon-theme: "Papirus-Dark";
 }
 
 @theme "/home/vincent/.config/rofi/themes/spotlight-dark.rasi"

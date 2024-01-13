@@ -1,6 +1,9 @@
 local awful = require("awful")
 local wibox = require("wibox")
+local dpi = require("beautiful.xresources").apply_dpi
 
+local battery_widget = require("battery-widget")
+local battery = battery_widget:new({})
 local menu = require("themes.default.menu")
 local net = require("themes.default.widgets.net")
 local systray = require("themes.default.widgets.systray")
@@ -55,6 +58,7 @@ return function(s, theme)
 				-- right widgets
 				layout = wibox.layout.fixed.horizontal,
 				s.widgets.systray,
+				screen.primary == s and wibox.container.margin(battery.widget, dpi(-1), dpi(10), dpi(5), dpi(5)) or nil,
 				s.widgets.net,
 				s.widgets.keyboardlayout,
 			},
