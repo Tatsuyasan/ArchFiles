@@ -12,6 +12,7 @@ local tasklist = require("themes.default.widgets.tasklist")
 local textclock = require("themes.default.widgets.textclock")
 local layoutbox = require("themes.default.widgets.layoutbox")
 local layoutlist = require("themes.default.widgets.layoutlist")
+local logoutmenu = require("themes.default.widgets.logout-menu-widget.logout-menu")
 local keyboardlayout = require("themes.default.widgets.keyboardlayout")
 
 return function(s, theme)
@@ -59,6 +60,18 @@ return function(s, theme)
 				layout = wibox.layout.fixed.horizontal,
 				s.widgets.systray,
 				screen.primary == s and wibox.container.margin(battery.widget, dpi(-1), dpi(10), dpi(5), dpi(5)) or nil,
+				screen.primary == s and wibox.container.margin(
+					logoutmenu({
+						font = "Hack Nerd Font",
+						onlock = function()
+							awful.spawn.with_shell("betterlockscreen -l dim --display 1")
+						end,
+					}),
+					dpi(-1),
+					dpi(10),
+					dpi(5),
+					dpi(5)
+				) or nil,
 				s.widgets.net,
 				s.widgets.keyboardlayout,
 			},
