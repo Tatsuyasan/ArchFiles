@@ -34,9 +34,12 @@ require("lazy").setup({
 
     { import = "lazyvim.plugins.extras.coding.yanky" },
 
+    { import = "lazyvim.plugins.extras.dap.core" },
+
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 
-    { import = "lazyvim.plugins.extras.lsp.none-ls", enabled = false },
+    { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    { import = "lazyvim.plugins.extras.coding.copilot" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
@@ -67,4 +70,30 @@ require("lazy").setup({
       },
     },
   },
+})
+
+require("luasnip/loaders/from_vscode").lazy_load({
+  paths = {
+    vim.fn.expand("~/.config/nvim/lua/snippets"),
+  },
+})
+
+require("neodev").setup({})
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { "volar", "tsserver" },
+})
+local lspconfig = require("lspconfig")
+
+require("mason-lspconfig").setup_handlers({
+  function(server_name)
+    local server_config = {}
+    if require("neoconf").get(server_name .. ".disable") then
+      return
+    end
+    if server_name == "volar" then
+      server_config.filetypes = { "vue", "typescript", "javascript" }
+    end
+    lspconfig[server_name].setup(server_config)
+  end,
 })

@@ -27,6 +27,8 @@ return {
           ".env",
           ".env.local",
           ".config",
+          ".eslintrc",
+          ".prettierrc",
         },
       },
     },

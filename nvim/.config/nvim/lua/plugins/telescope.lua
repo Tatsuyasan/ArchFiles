@@ -1,5 +1,5 @@
-local finders = require("telescope.finders")
-local sorters = require("telescope.sorters")
+-- local finders = require("telescope.finders")
+-- local sorters = require("telescope.sorters")
 return {
   {
     "telescope.nvim",
@@ -9,6 +9,12 @@ return {
         keys = { { "<leader>U", "<cmd>Telescope undo<cr>" } },
         config = function()
           require("telescope").load_extension("undo")
+        end,
+      },
+      {
+        "camgraff/telescope-tmux.nvim",
+        config = function()
+          require("telescope").load_extension("tmux")
         end,
       },
       {

@@ -10,12 +10,12 @@ set -g theme_hostname always
 
 # aliases
 alias g git
-command -qv nvim && alias vim nvim
+# command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim
 set -gx TERMINAL kitty
 set -gx BROWSER google-chrome
-set -gx DISPLAY :0.0
+# set -gx DISPLAY :0.0
 
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH

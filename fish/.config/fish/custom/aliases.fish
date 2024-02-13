@@ -59,13 +59,13 @@ end
 
 # Colorize grep output (good for log files)
 function grep
-    command grep --color=auto
+    command grep --color=auto $argv
 end
 function egrep
-    command egrep --color=auto
+    command egrep --color=auto $argv
 end
 function fgrep
-    command fgrep --color=auto
+    command fgrep --color=auto $argv
 end
 
 # confirm before overwriting something

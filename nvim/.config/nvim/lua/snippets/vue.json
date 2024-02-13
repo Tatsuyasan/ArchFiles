@@ -1,0 +1,19 @@
+{
+  "Vue SFC Script Setup": {
+    "prefix": "vbase-3",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "",
+      "${1}",
+      "",
+      "</script>",
+      "",
+      "<template>",
+      "  <div></div>",
+      "</template>",
+      "",
+      "<style scoped lang=\"scss\"></style>"
+    ],
+    "description": "Create vue component base setup with SFC / ts / scss /scoped style"
+  }
+}

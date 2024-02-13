@@ -1,0 +1,17 @@
+{
+  "Print to console": {
+    "prefix": "log",
+    "body": ["console.log('$1 ==> ', $1);$0"],
+    "description": "Log output to console"
+  },
+  "Arrow function": {
+    "prefix": "constfn",
+    "body": ["const ${1: variable} = () => ${0}"],
+    "description": "Create an arrow function"
+  },
+  "Computed arrow function": {
+    "prefix": "cmp",
+    "body": ["const ${1:name} = computed(()=>${0})"],
+    "description": "Create computed const"
+  }
+}
