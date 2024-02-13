@@ -18,11 +18,11 @@ return {
       },
       {
         filter = {
-          event = "msg_show",
           any = {
             { find = "No information available" },
           },
         },
+        opts = { skip = true },
       },
     },
   },
