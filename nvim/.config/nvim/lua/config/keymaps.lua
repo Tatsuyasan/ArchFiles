@@ -83,4 +83,10 @@ wk.register({
       p = { "<cmd>Telescope tmux pane_contents<cr>", "Telescope tmux pane_contents" },
     },
   },
+  c = {
+    c = {
+      name = "Copilot Chat",
+    },
+    L = { "<cmd>LspRestart<cr>", "lsp restart" },
+  },
 }, { prefix = "<leader>" })

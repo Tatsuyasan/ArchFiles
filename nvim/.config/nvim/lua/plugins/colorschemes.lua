@@ -24,6 +24,7 @@ return {
     config = function()
       require("onedark").setup({
         style = "deep",
+        transparent = true,
       })
       require("onedark").load()
     end,

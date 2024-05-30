@@ -1,0 +1,17 @@
+-- local opts = { noremap = true, silent = true }
+-- vim.api.nvim_set_keymap("n", "h", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "l", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "w", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "e", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "b", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "W", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "E", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "B", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "ge", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "gE", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "<left>", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "<right>", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "<space>", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "<BS>", "<nop>", opts)
+-- vim.api.nvim_set_keymap("n", "<c-h>", "<nop>", opts)
+return {}

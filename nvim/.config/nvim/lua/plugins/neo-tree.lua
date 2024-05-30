@@ -20,17 +20,30 @@ return {
     },
     filesystem = {
       filtered_items = {
-        -- hide_dotfiles = false,
-        -- hide_gitignored = false,
-        always_show = {
-          ".gitignore",
-          ".env",
-          ".env.local",
-          ".config",
-          ".eslintrc",
-          ".prettierrc",
+        --visible = true,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        hide_by_name = {
+          -- ".github",
         },
+        never_show = { ".git" },
       },
     },
+    -- filesystem = {
+    --   filtered_items = {
+    --     -- hide_dotfiles = false,
+    --     -- hide_gitignored = false,
+    --     always_show = {
+    --       ".gitignore",
+    --       ".env",
+    --       ".env.local",
+    --       ".config",
+    --       ".eslintrc",
+    --       ".prettierrc",
+    --       ".github",
+    --       ".docker",
+    --     },
+    --   },
+    -- },
   },
 }

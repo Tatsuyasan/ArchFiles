@@ -14,7 +14,7 @@ return {
             "vue",
             "json",
           },
-          root_dir = util.root_pattern("src/App.vue"),
+          root_dir = util.root_pattern("src/app.vue"),
         },
       },
     },

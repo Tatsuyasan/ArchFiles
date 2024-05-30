@@ -33,7 +33,16 @@ return {
     },
     keys = {
       { "<leader>/", false },
-      { "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      -- { "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      {
+        "<leader>sf",
+        function()
+          require("telescope.builtin").find_files({
+            default_text = vim.fn.expand("<cword>"),
+          })
+        end,
+        desc = "Find File under cursor",
+      },
       {
         "<leader>fp",
         function()
