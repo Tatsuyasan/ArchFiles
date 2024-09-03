@@ -4,8 +4,10 @@ function k9s --description 'k9s Wrapper to handle different environments based o
 
     switch $cmd
         case accretio
-            k9s -n df-patrimony-uat1 -n df-patrimony-dev -n df-patrimony-prep $args
+            command k9s -n df-patrimony-dev -n df-patrimony-uat1 -n df-patrimony-prep $args
+        case compliance
+            command k9s -n df-compliance-dashboard-dev $args
         case '*'
-            k9s $argv
+            command k9s $argv
     end
 end

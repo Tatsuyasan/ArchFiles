@@ -44,9 +44,9 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
-function fish_greeting
-    neofetch
-end
+# function fish_greeting
+#     neofetch
+# end
 
 # Github: https://github.com/edheltzel/dotfiles/tree/master/fish/functions
 source ~/.config/fish/custom/functions.fish

@@ -10,10 +10,21 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.conceallevel = 0
   end,
 })
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
   callback = function()
     vim.highlight.on_yank({ timeout = 200 })
+  end,
+})
+
+-- Disable autoformat and lsp display for .env file
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { ".env", ".env.local", ".env.debug", "config.env" },
+  callback = function()
+    vim.bo.filetype = ""
+    vim.b.autoformat = false
+    vim.diagnostic.enable(false)
   end,
 })

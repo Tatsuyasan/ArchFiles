@@ -14,7 +14,9 @@ return {
             "vue",
             "json",
           },
-          root_dir = util.root_pattern("src/app.vue"),
+          root_dir = function(fname)
+            return util.root_pattern("src/app.vue")(fname) or util.root_pattern("vite.config.ts")(fname)
+          end,
         },
       },
     },

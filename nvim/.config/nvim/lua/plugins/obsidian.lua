@@ -32,68 +32,69 @@ return {
     local actions = require("telescope.actions")
     local action_state = require("telescope.actions.state")
 
-    wk.register({
-      ["<leader>o"] = {
-        name = "obsidian",
-        a = { "<cmd>ObsidianOpen<cr>", "App Obsidian open note" },
-        o = {
-          function()
-            local title = vim.fn.input("Enter note title: ")
-            vim.cmd("ObsidianNew " .. title)
-          end,
-          "Open new note with title",
-        },
-        t = { "<cmd>ObsidianToday<cr>", "Daily Note" },
-        y = { "<cmd>ObsidianYesterday<cr>", "Yesterday's Note" },
-        T = { "<cmd>ObsidianTemplate<cr>", "Template" },
-        s = { "<cmd>ObsidianSearch<cr>", "Search" },
-        l = { "<cmd>ObsidianLink<cr>", "Link to existing note" },
-        L = {
-          function()
-            local title = vim.fn.input("Enter new note title: ")
-            vim.cmd("ObsidianLinkNew " .. title)
-          end,
-          "Link to new note",
-        },
-        p = { "<cmd>ObsidianPasteImg<cr>", "Paste image" },
-        q = { "<cmd>ObsidianQuickSwitch<cr>", "Quick switch" },
-        w = {
-          function()
-            local get_workspace_from_config = function()
-              local names = {}
-              for _, workspace in ipairs(obsidian.get_client().opts.workspaces) do
-                table.insert(names, workspace.name)
-              end
-              return names
-            end
-
-            local obsidian_workspace_pickers = function(opts)
-              opts = opts or {}
-              pickers
-                .new({
-                  layout_strategy = "vertical",
-                  layout_config = { height = 10, width = 0.3, prompt_position = "top" },
-                }, {
-                  prompt_title = "Obsidian workspaces",
-                  finder = finders.new_table(get_workspace_from_config()),
-                  sorter = sorters.get_generic_fuzzy_sorter({}),
-                  attach_mappings = function(prompt_bufnr, _)
-                    actions.select_default:replace(function()
-                      actions.close(prompt_bufnr)
-                      local selected_workspace = action_state.get_selected_entry()[1]
-                      obsidian.get_client().switch_workspace(obsidian.get_client(), selected_workspace)
-                    end)
-                    return true
-                  end,
-                })
-                :find()
-            end
-
-            obsidian_workspace_pickers()
-          end,
-          "Choose workspace",
-        },
+    wk.add({
+      { "<leader>o", group = "obsidian" },
+      {
+        "<leader>oL",
+        function()
+          local title = vim.fn.input("Enter new note title: ")
+          vim.cmd("ObsidianLinkNew " .. title)
+        end,
+        desc = "Link to new note",
       },
+      { "<leader>oT", "<cmd>ObsidianTemplate<cr>", desc = "Template" },
+      { "<leader>oa", "<cmd>ObsidianOpen<cr>", desc = "App Obsidian open note" },
+      { "<leader>ol", "<cmd>ObsidianLink<cr>", desc = "Link to existing note" },
+      {
+        "<leader>oo",
+        function()
+          local title = vim.fn.input("Enter note title: ")
+          vim.cmd("ObsidianNew " .. title)
+        end,
+        desc = "Open new note with title",
+      },
+      { "<leader>op", "<cmd>ObsidianPasteImg<cr>", desc = "Paste image" },
+      { "<leader>oq", "<cmd>ObsidianQuickSwitch<cr>", desc = "Quick switch" },
+      { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Search" },
+      { "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Daily Note" },
+      {
+        "<leader>ow",
+        function()
+          local get_workspace_from_config = function()
+            local names = {}
+            for _, workspace in ipairs(obsidian.get_client().opts.workspaces) do
+              table.insert(names, workspace.name)
+            end
+            return names
+          end
+
+          local obsidian_workspace_pickers = function(opts)
+            opts = opts or {}
+            pickers
+              .new({
+                layout_strategy = "vertical",
+                layout_config = { height = 10, width = 0.3, prompt_position = "top" },
+              }, {
+                prompt_title = "Obsidian workspaces",
+                finder = finders.new_table(get_workspace_from_config()),
+                sorter = sorters.get_generic_fuzzy_sorter({}),
+                attach_mappings = function(prompt_bufnr, _)
+                  actions.select_default:replace(function()
+                    actions.close(prompt_bufnr)
+                    local selected_workspace = action_state.get_selected_entry()[1]
+                    obsidian.get_client().switch_workspace(obsidian.get_client(), selected_workspace)
+                  end)
+                  return true
+                end,
+              })
+              :find()
+          end
+
+          obsidian_workspace_pickers()
+        end,
+        desc = "Choose workspace",
+      },
+      { "<leader>oy", "<cmd>ObsidianYesterday<cr>", desc = "Yesterday's Note" },
     })
   end,
   opts = {
