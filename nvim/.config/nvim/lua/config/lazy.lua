@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
@@ -5,6 +6,8 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+
+vim.lsp.inlay_hint.enable(false)
 
 require("lazy").setup({
   spec = {
@@ -51,3 +54,52 @@ require("lazy").setup({
     },
   },
 })
+
+-- local lspconfig = require("lspconfig")
+-- lspconfig.volar.setup({
+--   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+--   init_options = {
+--     vue = {
+--       hybridMode = false,
+--     },
+--   },
+-- })
+
+-- local vue_language_server_path =
+--   "/home/20104519/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server"
+-- local lspconfig = require("lspconfig")
+--
+-- lspconfig.ts_ls.setup({
+--   init_options = {
+--     plugins = {
+--       {
+--         name = "@vue/typescript-plugin",
+--         location = vue_language_server_path,
+--         languages = { "vue" },
+--       },
+--     },
+--   },
+-- })
+--
+-- lspconfig.volar.setup({
+--   init_options = {
+--     vue = {
+--       hybridMode = false,
+--     },
+--   },
+-- })
+--
+-- lspconfig.ts_ls.setup({
+--   init_options = {
+--     plugins = {
+--       {
+--         name = "@vue/typescript-plugin",
+--         location = vue_language_server_path,
+--         languages = { "vue" },
+--       },
+--     },
+--   },
+--   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+-- })
+--
+-- lspconfig.volar.setup({})

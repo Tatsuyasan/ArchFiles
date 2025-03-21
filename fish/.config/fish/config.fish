@@ -1,5 +1,6 @@
 set -U fish_greeting
 set -gx TERM xterm-kitty
+set -gx ATAC_KEY_BINDINGS ~/.config/atac/vim_key_bindings.toml
 
 # theme
 set -g theme_color_scheme terminal-dark
@@ -59,3 +60,11 @@ source ~/.config/fish/custom/mkd.fish
 source ~/.config/fish/custom/weather.fish
 source ~/.config/fish/custom/ranger.fish
 source ~/.config/fish/custom/k9s.fish
+source ~/.config/fish/custom/atac.fish
+
+# pnpm
+set -gx PNPM_HOME "/home/20104519/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

@@ -20,7 +20,7 @@ for _, language in ipairs(languages) do
     {
       type = "pwa-node",
       request = "launch",
-      name = "Launch Project",
+      name = "Launch Back Project",
       runtimeArgs = function()
         local co = coroutine.running()
         return coroutine.create(function()
@@ -55,6 +55,17 @@ for _, language in ipairs(languages) do
       end,
       port = 9229,
       -- skipFiles= ["<node_internals>/**"],
+      skipFiles = { "**/node_modules/**/*", "**/@vite/*", "**/src/client/*", "**/src/*" },
+      sourceMaps = true,
+      cwd = "${workspaceFolder}",
+      console = "integratedTerminal",
+    },
+    {
+      type = "pwa-node",
+      request = "attach",
+      name = "Attach to Back Project",
+      port = 9229, -- This should be the port where your node process is running
+      restart = true,
       skipFiles = { "**/node_modules/**/*", "**/@vite/*", "**/src/client/*", "**/src/*" },
       sourceMaps = true,
       cwd = "${workspaceFolder}",

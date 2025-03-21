@@ -15,5 +15,19 @@
       "<style scoped lang=\"scss\"></style>"
     ],
     "description": "Create vue component base setup with SFC / ts / scss /scoped style"
+  },
+  "Vue 3 watchEffect log snippet": {
+    "prefix": "clgwatch",
+    "body": [
+      "watchEffect(() => {",
+      "  console.log('${1:maVariable} a changé:', ${1:maVariable});",
+      "});"
+    ],
+    "description": "Snippet pour watchEffect dans Vue 3"
+  },
+  "Vue 3 watchEffect snippet": {
+    "prefix": "we",
+    "body": ["watchEffect(() => {", "  $0", "});"],
+    "description": "Snippet pour watchEffect dans Vue 3"
   }
 }

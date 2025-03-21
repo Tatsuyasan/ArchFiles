@@ -11,6 +11,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
+  callback = function()
+    vim.opt_local.spell = false
+  end,
+})
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
