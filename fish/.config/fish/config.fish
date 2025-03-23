@@ -1,6 +1,9 @@
-set -U fish_greeting
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+set -g fish_greeting
 set -gx TERM xterm-kitty
-set -gx ATAC_KEY_BINDINGS ~/.config/atac/vim_key_bindings.toml
 
 # theme
 set -g theme_color_scheme terminal-dark
@@ -9,14 +12,9 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
-# aliases
-alias g git
-# command -qv nvim && alias vim nvim
-
 set -gx EDITOR nvim
 set -gx TERMINAL kitty
 set -gx BROWSER google-chrome
-# set -gx DISPLAY :0.0
 
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
@@ -24,10 +22,6 @@ set -gx PATH ~/.local/bin $PATH
 
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
-
-# Go
-set -g GOPATH $HOME/go
-set -gx PATH $GOPATH/bin $PATH
 
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
@@ -45,11 +39,6 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
-# function fish_greeting
-#     neofetch
-# end
-
-# Github: https://github.com/edheltzel/dotfiles/tree/master/fish/functions
 source ~/.config/fish/custom/functions.fish
 source ~/.config/fish/keybindings.fish
 source ~/.config/fish/custom/aliases.fish
@@ -65,6 +54,6 @@ source ~/.config/fish/custom/atac.fish
 # pnpm
 set -gx PNPM_HOME "/home/20104519/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end

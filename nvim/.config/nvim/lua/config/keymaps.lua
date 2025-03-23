@@ -1,25 +1,14 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
--- local discipline = require("craftzdog.discipline")
---
--- discipline.cowboy()
 local wk = require("which-key")
-
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
-
-------- ADD custom LazyVim keymaps -------
 
 -- Better comment
 local commentOpts = { desc = "Comment line", remap = true }
 keymap("n", "<leader>/", "gcc", commentOpts)
 keymap("v", "<leader>/", "gc", commentOpts)
-
--- Increment/decrement
--- keymap("n", "+", "<C-a>")
--- keymap("n", "-", "<C-x>")
 
 -- Select all
 keymap("n", "<C-a>", "gg<S-v>G", opts)
@@ -43,10 +32,6 @@ keymap("n", "<M-S-l>", ":BufferLineMoveNext<cr>", opts)
 keymap("n", "<M-left>", ":tabprev<Return>", opts)
 keymap("n", "<M-right>", ":tabnext<Return>", opts)
 keymap("n", "td", ":tabc<Return>", opts)
-
--- Split window
-keymap("n", "ss", ":split<Return>", opts)
-keymap("n", "sv", ":vsplit<Return>", opts)
 
 -- Better move in insert mode
 keymap("i", "<C-Return>", "<Esc>o", opts)
@@ -75,5 +60,4 @@ wk.add({
   { "<leader>gb", "<cmd>ToggleBlame virtual<cr>", desc = "Git blame on file" },
   { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Git preview hunk" },
   { "<leader>gt", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Git blame virtual text toggle" },
-  { "<leader>uz", "<cmd>ZenMode<cr>", desc = "Toggle Zen mode" },
 })

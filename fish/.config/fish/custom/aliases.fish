@@ -3,19 +3,19 @@ function ls
     command eza -a --group-directories-first --icons $argv
 end
 function l
-    command eza -Fla --sort name --git --group-directories-first --icons $argv
+    command eza -la --sort name --git --group-directories-first --icons $argv
 end
 function ll
-    command eza -Flagh --git --group-directories-first --icons --sort modified $argv
+    command eza -lagh --git --group-directories-first --icons --sort modified $argv
 end
 function la
-    command eza -Fla --git --group-directories-first --icons $argv
+    command eza -la --git --group-directories-first --icons $argv
 end
 function tree
     command eza --tree --icons $argv
 end
 function cl
-    command clear; and neofetch
+    command clear
 end
 
 # git
