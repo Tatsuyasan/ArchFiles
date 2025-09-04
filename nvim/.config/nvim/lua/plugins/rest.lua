@@ -9,10 +9,13 @@ return {
   -- },
   -- {
   --   "rest-nvim/rest.nvim",
-  --   ft = "http",
-  --   dependencies = { "luarocks.nvim" },
-  --   config = function()
-  --     require("rest-nvim").setup()
-  --   end,
+  --   dependencies = {
+  --     "vhyrro/luarocks.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --     opts = function(_, opts)
+  --       opts.ensure_installed = opts.ensure_installed or {}
+  --       table.insert(opts.ensure_installed, "http")
+  --     end,
+  --   },
   -- },
 }

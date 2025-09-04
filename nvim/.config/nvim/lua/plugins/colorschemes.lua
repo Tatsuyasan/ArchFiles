@@ -14,9 +14,19 @@ return {
   --   lazy = false,
   --   config = function()
   --     require("onedark").setup({
-  --       style = "deep",
+  --       style = "dark",
   --     })
   --     require("onedark").load()
+  --   end,
+  -- },
+  -- {
+  --   "craftzdog/solarized-osaka.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = function()
+  --     return {
+  --       transparent = false,
+  --     }
   --   end,
   -- },
 }

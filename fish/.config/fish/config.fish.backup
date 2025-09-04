@@ -52,7 +52,6 @@ source ~/.config/fish/custom/ranger.fish
 source ~/.config/fish/custom/k9s.fish
 source ~/.config/fish/custom/atac.fish
 source ~/.config/fish/custom/yazi.fish
-source ~/.config/fish/custom/nvim-custom.fish
 
 # pnpm
 set -gx PNPM_HOME "/home/20104519/.local/share/pnpm"
@@ -62,6 +61,4 @@ end
 # pnpm end
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/20104519/google-cloud-sdk/path.fish.inc' ]
-    . '/home/20104519/google-cloud-sdk/path.fish.inc'
-end
+if [ -f '/home/20104519/projects/adeo/check-ethics/hf3p--ba-check-ethics/google-cloud-sdk/path.fish.inc' ]; . '/home/20104519/projects/adeo/check-ethics/hf3p--ba-check-ethics/google-cloud-sdk/path.fish.inc'; end

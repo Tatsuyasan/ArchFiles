@@ -12,6 +12,7 @@ vim.opt.number = true
 
 vim.opt.pumblend = 0
 vim.opt.autoindent = true
+vim.opt.fixendofline = false
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
 vim.opt.backup = false

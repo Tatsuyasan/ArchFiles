@@ -37,22 +37,38 @@ keymap("n", "td", ":tabc<Return>", opts)
 keymap("i", "<C-Return>", "<Esc>o", opts)
 keymap("i", "<C-S-Return>", "<Esc>O", opts)
 
+-- Better terminal (in root of project)
+-- keymap("n", "<leader>fT", function()
+--   Snacks.terminal()
+-- end, { desc = "Terminal (cwd)" })
+-- keymap("n", "<leader>ft", function()
+--   Snacks.terminal(nil, { cwd = LazyVim.root() })
+-- end, { desc = "Terminal (Root Dir)" })
+-- default behavior
+-- keymap("n", "<c-/>",      function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
+-- vim.keymap.del("n", "<C-/>") -- Remove existing mapping if any
+-- keymap("n", "<C-/>", "<leader>fT", { desc = "Terminal (cwd)", remap = true })
+-- keymap("n", "<c-_>", function()
+--   Snacks.terminal(nil, { cwd = LazyVim.root() })
+-- end, { desc = "which_key_ignore" })
+
 wk.add({
+
   { "<leader>D", "<cmd>LazyDocker<CR>", desc = "Toggle LazyDocker" },
-  { "<leader>T", group = "telescope" },
-  { "<leader>Tb", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
-  { "<leader>Te", "<cmd>Telescope emoji<cr>", desc = "Telescope emoji" },
-  { "<leader>Th", "<cmd>Telescope man_pages<cr>", desc = "Telescope man pages" },
-  { "<leader>Tn", "<cmd>Telescope notify<cr>", desc = "Telescope notify" },
-  { "<leader>Tq", "<cmd>Telescope quickfix<cr>", desc = "Telescope quickfix" },
-  { "<leader>Tr", "<cmd>Telescope resume<cr>", desc = "Telescope resume" },
-  { "<leader>Ts", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
-  { "<leader>Tt", group = "tmux" },
-  { "<leader>Ttp", "<cmd>Telescope tmux pane_contents<cr>", desc = "Telescope tmux pane_contents" },
-  { "<leader>Tts", "<cmd>Telescope tmux sessions<cr>", desc = "Telescope tmux sessions" },
-  { "<leader>Ttw", "<cmd>Telescope tmux windows<cr>", desc = "Telescope tmux windows" },
-  { "<leader>Tu", "<cmd>Telescope undo<cr>", desc = "Telescope undo" },
-  { "<leader>Ty", "<cmd>Telescope yank_history<cr>", desc = "Telescope yank history" },
+  -- { "<leader>T", group = "telescope" },
+  -- { "<leader>Tb", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
+  -- { "<leader>Te", "<cmd>Telescope emoji<cr>", desc = "Telescope emoji" },
+  -- { "<leader>Th", "<cmd>Telescope man_pages<cr>", desc = "Telescope man pages" },
+  -- { "<leader>Tn", "<cmd>Telescope notify<cr>", desc = "Telescope notify" },
+  -- { "<leader>Tq", "<cmd>Telescope quickfix<cr>", desc = "Telescope quickfix" },
+  -- { "<leader>Tr", "<cmd>Telescope resume<cr>", desc = "Telescope resume" },
+  -- { "<leader>Ts", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
+  -- { "<leader>Tt", group = "tmux" },
+  -- { "<leader>Ttp", "<cmd>Telescope tmux pane_contents<cr>", desc = "Telescope tmux pane_contents" },
+  -- { "<leader>Tts", "<cmd>Telescope tmux sessions<cr>", desc = "Telescope tmux sessions" },
+  -- { "<leader>Ttw", "<cmd>Telescope tmux windows<cr>", desc = "Telescope tmux windows" },
+  -- { "<leader>Tu", "<cmd>Telescope undo<cr>", desc = "Telescope undo" },
+  -- { "<leader>Ty", "<cmd>Telescope yank_history<cr>", desc = "Telescope yank history" },
   { "<leader>bh", "<cmd>:BufferLineCloseLeft<cr>", desc = "Delete buffers to the left" },
   { "<leader>bl", "<cmd>:BufferLineCloseRight<cr>", desc = "Delete buffers to the right" },
   { "<leader>cL", "<cmd>LspRestart<cr>", desc = "lsp restart" },

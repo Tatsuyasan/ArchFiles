@@ -36,25 +36,25 @@ end
 
 # Docker compose
 function dcu
-    command docker-compose up $argv
+    command docker compose up $argv
 end
 function dcd
-    command docker-compose down $argv
+    command docker compose down $argv
 end
 function dce
-    command docker-compose exec $argv
+    command docker compose exec $argv
 end
 function dcl
-    command docker-compose logs $argv
+    command docker compose logs $argv
 end
 function dclf
-    command docker-compose logs -f $argv
+    command docker compose logs -f $argv
 end
 function dcs
-    command docker-compose stop $argv
+    command docker compose stop $argv
 end
 function dcp
-    command docker-compose ps $argv
+    command docker compose ps $argv
 end
 
 # Colorize grep output (good for log files)
