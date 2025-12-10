@@ -19,7 +19,8 @@ set -gx BROWSER google-chrome
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
-set -gx PATH ~/.local/bin/go/bin $PATH
+set -gx PATH ~/.local/kitty.app/bin $PATH
+set -gx PATH /usr/local/go/bin $PATH
 
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
@@ -34,6 +35,7 @@ function __check_rvm --on-variable PWD --description 'Do nvm stuff'
     end
 end
 bass source ~/.nvm/nvm.sh
+nvm use 22 >/dev/null
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
@@ -52,6 +54,7 @@ source ~/.config/fish/custom/ranger.fish
 source ~/.config/fish/custom/k9s.fish
 source ~/.config/fish/custom/atac.fish
 source ~/.config/fish/custom/yazi.fish
+source ~/.config/fish/custom/nvim-custom.fish
 
 # pnpm
 set -gx PNPM_HOME "/home/20104519/.local/share/pnpm"
@@ -61,4 +64,6 @@ end
 # pnpm end
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/20104519/projects/adeo/check-ethics/hf3p--ba-check-ethics/google-cloud-sdk/path.fish.inc' ]; . '/home/20104519/projects/adeo/check-ethics/hf3p--ba-check-ethics/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/home/20104519/google-cloud-sdk/path.fish.inc' ]
+    . '/home/20104519/google-cloud-sdk/path.fish.inc'
+end

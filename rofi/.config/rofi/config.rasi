@@ -8,7 +8,7 @@ configuration {
   icon-theme: "Papirus-Dark";
 }
 
-@theme "/home/vincent/.config/rofi/themes/spotlight-dark.rasi"
+@theme "~/.config/rofi/themes/spotlight-dark.rasi"
 
 * {
   // Focus color 

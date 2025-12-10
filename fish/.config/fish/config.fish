@@ -19,7 +19,9 @@ set -gx BROWSER google-chrome
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
-set -gx PATH ~/.local/bin/go/bin $PATH
+set -gx PATH ~/.local/kitty.app/bin $PATH
+set -gx PATH ~/go/bin $PATH
+set -gx PATH /usr/local/go/bin $PATH
 
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
@@ -34,6 +36,7 @@ function __check_rvm --on-variable PWD --description 'Do nvm stuff'
     end
 end
 bass source ~/.nvm/nvm.sh
+nvm use 22 >/dev/null
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG

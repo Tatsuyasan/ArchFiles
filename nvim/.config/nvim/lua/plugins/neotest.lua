@@ -18,7 +18,17 @@ return {
           return vim.fn.getcwd()
         end,
       },
-      ["neotest-vitest"] = {},
+      ["neotest-vitest"] = {
+        env = { CI = true },
+        filter_dir = function(name, rel_path, root)
+          -- Only include directories named "tests" inside "apps/*"
+          if rel_path:match("^apps/.+/tests$") then
+            return true
+          end
+          -- Always exclude node_modules
+          return name ~= "node_modules"
+        end,
+      },
     },
     -- Example for loading neotest-go with a custom config
     -- adapters = {
